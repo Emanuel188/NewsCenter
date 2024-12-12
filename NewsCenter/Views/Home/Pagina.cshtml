@@ -1,0 +1,249 @@
+﻿@model NewsCenter.Models.ViewModels.PaginaViewModel
+@{
+    ViewData["Title"] = Model.Titulo;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>@(Model.Titulo)</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 100%;
+            content: normal;
+            display: flex;
+            flex-flow: row wrap;
+            background-size: cover;
+            height: 100%;
+            margin-left: -10px;
+            margin-right: 0px;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 50px;
+            margin: 0;
+        }
+
+        header {
+            background-color: #161f79;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            width: 100%;
+            margin-top: -20px;
+            margin-left: -10px;
+            padding: 0;
+        }
+
+        .Encabezado {
+            background-color: #ffffff;
+        }
+
+        img {
+            width: 60px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            height: 90%;
+        }
+
+        ul li {
+            display: inline-block;
+            padding: 0px 70px;
+        }
+
+        header a {
+            font-size: 25px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            background-color: black;
+            padding: 5px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .fondo {
+            background: url(logos/NotiFOndo.png) no-repeat bottom;
+            background-size: cover;
+            margin: 0 20px;
+            border-radius: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .Noticias {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        div.Noticia {
+            background-color: white;
+            margin: 10px 20px;
+            box-shadow: 0 4px 8px 0 rgb(19, 5, 5);
+            width: 22%;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+            div.Noticia img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 10px 10px 0px 0px;
+            }
+
+            div.Noticia p {
+                font-size: 15px;
+                padding: 10px;
+            }
+
+
+        .container1 {
+            display: flex;
+            justify-content: left;
+            max-width: 100%;
+            margin: 5px 20px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 15px;
+            border: none;
+            width: 400px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #2fb4cc;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .ver-mas {
+            margin-left: 10px;
+            padding: 10px;
+        }
+
+            .ver-mas a {
+                text-decoration: none;
+                color: lightsalmon;
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+            }
+
+                .ver-mas a i {
+                    margin-left: 5px;
+                }
+
+
+        .NoticiaDia {
+            background-color: #FFA0A0;
+            border-radius: 12px;
+            margin: 10px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+
+        footer {
+            background-color: #f1b30f;
+            height: 42px;
+            border-top: 1px groove lightgray;
+            font-size: 20px;
+            text-align: center;
+            font-style: italic;
+            line-height: 42px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            align-items: center;
+        }
+
+            .social-icons img {
+                width: 5px;
+                height: 5px;
+                object-fit: contain;
+            }
+
+       
+
+        .image-container {
+            text-align: center;
+        }
+
+            .image-container img {
+                width: 450px;
+                height: 320px;
+                margin-top: 50px;
+            }
+
+        .image-info {
+            font-size: 17px;
+            color: gray;
+        }
+
+        .content {
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-center">
+            <h1>NewsCenter</h1>
+        </nav>
+    </header>
+
+    <div class="image-container">
+        <img src="~/Imagenes/@(Model.Id).jpg">
+        <div class="image-info">Fecha: @(Model.Fecha) | Autor: @(Model.NombreAutor) </div>
+    </div>
+    <br />
+    <div class="info">
+        <h1>@(Model.Titulo)</h1>
+        <p>@(Model.Contenido)</p>
+    </div>
+    <br />
+    <footer>
+        <div class="socialIcons">
+          
+        </div>
+    </footer>
+</body>
+</html>
+

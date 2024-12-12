@@ -1,0 +1,61 @@
+﻿@model NewsCenter.Areas.Administrador.Models.AgregarNoticiaViewModel;
+@{
+    ViewData["Title"] = "AgregarNoticia";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/styles.css">
+    <title>Agregar Noticia - NewsCenter</title>
+</head>
+<body>
+    <main>
+        <form action="~/administrador/home/agregarnoticia" method="POST" enctype="multipart/form-data" >
+            <div class="form-container">
+                <h1>Agregar Noticia</h1><br>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required /><br /> <br>
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" required /><br /><br>
+
+                <label for="ciudad">Ciudad:</label>
+                <select id="ciudad" name="ciudadId" required>
+                    <option selected="selected" value="">-- Seleccionar ciudad --</option>
+                    @foreach (var item in Model.Ciudades)
+                    {
+                        <option value=@item.Id >@item.Nombre</option>
+                    }
+                    
+                </select><br /><br>
+
+                <label for="autor">Autor:</label>
+                <select id="autor" name="autorId" required>
+                    <option selected="selected" value="">-- Seleccionar autor --</option>
+                    @foreach (var item in Model.Autores)
+                    {
+                        <option value=@item.Id>@item.Nombre</option>
+                    }
+                    
+                </select><br /><br>
+
+                <label for="fileUpload1">Imagen:</label>
+                <input type="file" id="fileUpload1" name="imagen" accept=".jpg" required /><br /><br>
+
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" name="contenido" rows="20" required></textarea><br /><br>
+
+                <div>
+                    <input type="submit" value="Agregar Noticia" class="submit-button" />
+                </div>
+            </div>
+            <p class="">
+                @Html.ValidationSummary(true)
+            </p>
+        </form>
+    </main>
+</body>
+</html>
+
+
